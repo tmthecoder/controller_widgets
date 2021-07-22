@@ -25,9 +25,9 @@ class ThemeControllerWidgetState extends State<ThemeControllerWidget> {
 
   /// A method to toggle the state if the theme and will update the website's
   /// darkmode calls
-  void toggleDark() async {
+  void toggleDark([bool? dark]) async {
     setState(() {
-      _isDark = !_isDark;
+      _isDark = dark ?? !_isDark;
     });
     (await SharedPreferences.getInstance()).setBool("initialDark", _isDark);
   }
